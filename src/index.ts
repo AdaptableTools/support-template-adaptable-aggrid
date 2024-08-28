@@ -1,6 +1,12 @@
 import { AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable/types';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
-import { GridOptions, Module } from '@ag-grid-community/core';
+import { GridOptions } from '@ag-grid-community/core';
+
+import '@ag-grid-community/styles/ag-grid.css';
+import '@ag-grid-community/styles/ag-theme-alpine.css';
+import '@adaptabletools/adaptable/base.css';
+import '@adaptabletools/adaptable/themes/light.css';
+import '@adaptabletools/adaptable/themes/dark.css';
 
 import { columnDefs, defaultColDef } from './columnDefs';
 import { rowData } from './rowData';
