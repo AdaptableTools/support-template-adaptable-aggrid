@@ -1,4 +1,8 @@
-import { AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable/types';
+import {
+  AdaptableOptions,
+  AdaptableStateFunctionConfig,
+  AgGridConfig,
+} from '@adaptabletools/adaptable/types';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
 import { GridOptions } from '@ag-grid-community/core';
 
@@ -20,6 +24,24 @@ const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
   userName: 'support user',
   adaptableId: 'AdapTable Vanilla Support Template',
+  // Typically you will store State remotely; here we simply leverage local storage for convenience
+  stateOptions: {
+    persistState: (state, adaptableStateFunctionConfig) => {
+      localStorage.setItem(adaptableStateFunctionConfig.adaptableStateKey, JSON.stringify(state));
+      return Promise.resolve(true);
+    },
+    loadState: (config: AdaptableStateFunctionConfig) => {
+      return new Promise((resolve) => {
+        let state = {};
+        try {
+          state = JSON.parse(localStorage.getItem(config.adaptableStateKey) as string) || {};
+        } catch (err) {
+          console.log('Error loading state', err);
+        }
+        resolve(state);
+      });
+    },
+  },
   predefinedConfig: {},
 };
 
