@@ -17,7 +17,7 @@ import { rowData } from './rowData';
 import { agGridModules } from './agGridModules';
 
 // Build the AdaptableOptions object and set primaryKey and adaptableId
-// In this example we are NOT creating any predefined config nor providing any Adaptable Options classes (e.g. filters, entitlements)
+// In this example we are NOT creating any predefined config, other than Layout, nor providing any Adaptable Options classes (e.g. filters, entitlements)
 // However in the real world you will set up AdapTable Options to fit your requirements and configure your permissions and remote State
 // You will also provide Predefined Config so that AdapTable ships for first time use with your required objects
 const adaptableOptions: AdaptableOptions = {
@@ -42,7 +42,33 @@ const adaptableOptions: AdaptableOptions = {
       });
     },
   },
-  predefinedConfig: {},
+  predefinedConfig: {
+    Layout: {
+      CurrentLayout: 'Basic',
+      Layouts: [
+        {
+          Name: 'Basic',
+          Columns: [
+            'name',
+            'language',
+            'github_stars',
+            'license',
+            'week_issue_change',
+            'created_at',
+            'has_wiki',
+            'updated_at',
+            'pushed_at',
+            'github_watchers',
+            'description',
+            'open_issues_count',
+            'closed_issues_count',
+            'open_pr_count',
+            'closed_pr_count',
+          ],
+        },
+      ],
+    },
+  },
 };
 
 // Create an AG Grid GridOptions object with the Column Definitions and Row Data created above
