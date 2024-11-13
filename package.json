@@ -2,7 +2,7 @@
   "name": "support-template-adaptable-aggrid",
   "version": "1.0.0",
   "description": "AdapTable Support Template",
-  "main": "index.js",
+  "source": "index.html",
   "scripts": {
     "dev": "parcel index.html --no-cache",
     "build": "parcel build index.html",
@@ -26,7 +26,7 @@
     "@ag-grid-enterprise/side-bar": "~32.3.0",
     "@ag-grid-enterprise/sparklines": "~32.3.0",
     "@ag-grid-enterprise/status-bar": "~32.3.0",
-    "parcel": "^2.12.0"
+    "parcel": "2.12.0"
   },
   "keywords": [],
   "author": "JonnyAdaptableTools",
