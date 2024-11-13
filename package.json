@@ -2,7 +2,7 @@
   "name": "support-template-adaptable-aggrid",
   "version": "1.0.0",
   "description": "AdapTable Support Template",
-  "main": "index.js",
+  "source": "index.html",
   "scripts": {
     "dev": "parcel index.html --no-cache",
     "build": "parcel build index.html",
