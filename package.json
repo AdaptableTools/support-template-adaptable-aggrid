@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json,html}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable": "^19.1.0",
+    "@adaptabletools/adaptable": "~19.2.0",
     "@ag-grid-community/client-side-row-model": "~32.3.0",
     "@ag-grid-community/core": "~32.3.0",
     "@ag-grid-community/styles": "~32.3.0",
