@@ -91,6 +91,7 @@ const gridOptions: GridOptions = {
   defaultColDef,
   columnDefs,
   rowData,
+  theme: 'legacy',
 };
 
 // Create an AG Grid Config object which contains AG Grid Grid Options and Modules
