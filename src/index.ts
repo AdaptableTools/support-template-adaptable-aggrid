@@ -4,10 +4,10 @@ import {
   AgGridConfig,
 } from '@adaptabletools/adaptable/types';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
-import { GridOptions } from '@ag-grid-community/core';
+import { GridOptions } from 'ag-grid-enterprise';
 
-import '@ag-grid-community/styles/ag-grid.css';
-import '@ag-grid-community/styles/ag-theme-alpine.css';
+import 'ag-grid-enterprise/styles/ag-grid.css';
+import 'ag-grid-enterprise/styles/ag-theme-alpine.css';
 import '@adaptabletools/adaptable/base.css';
 import '@adaptabletools/adaptable/themes/light.css';
 import '@adaptabletools/adaptable/themes/dark.css';
@@ -16,17 +16,22 @@ import { columnDefs, defaultColDef } from './columnDefs';
 import { rowData } from './rowData';
 import { agGridModules } from './agGridModules';
 
+//@ts-ignore
+const licenseKey = process.env.ADAPTABLE_LICENSE_KEY;
+
 // Build the AdaptableOptions object and set primaryKey and adaptableId
 // In this example we are NOT creating any predefined config, other than Layout, nor providing any Adaptable Options classes (e.g. filters, entitlements)
 // However in the real world you will set up AdapTable Options to fit your requirements and configure your permissions and remote State
 // You will also provide Predefined Config so that AdapTable ships for first time use with your required objects
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
+  licenseKey,
   userName: 'support user',
   adaptableId: 'AdapTable Vanilla Support Template',
   // Typically you will store State remotely; here we simply leverage local storage for convenience
   stateOptions: {
     persistState: (state, adaptableStateFunctionConfig) => {
+      console.log('state key', adaptableStateFunctionConfig.adaptableStateKey);
       localStorage.setItem(adaptableStateFunctionConfig.adaptableStateKey, JSON.stringify(state));
       return Promise.resolve(true);
     },
@@ -34,7 +39,9 @@ const adaptableOptions: AdaptableOptions = {
       return new Promise((resolve) => {
         let state = {};
         try {
+          console.log('load state from key', config.adaptableStateKey);
           state = JSON.parse(localStorage.getItem(config.adaptableStateKey) as string) || {};
+          console.log('state', state);
         } catch (err) {
           console.log('Error loading state', err);
         }
@@ -43,12 +50,20 @@ const adaptableOptions: AdaptableOptions = {
     },
   },
   predefinedConfig: {
+    Dashboard: {
+      Tabs: [
+        {
+          Name: 'Home',
+          Toolbars: ['Layout'],
+        },
+      ],
+    },
     Layout: {
       CurrentLayout: 'Basic',
       Layouts: [
         {
           Name: 'Basic',
-          Columns: [
+          TableColumns: [
             'name',
             'language',
             'github_stars',

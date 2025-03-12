@@ -1,4 +1,4 @@
-import { ColDef } from '@ag-grid-community/core';
+import { ColDef } from 'ag-grid-enterprise';
 import { WebFramework } from './rowData';
 
 export const defaultColDef: ColDef = {
