@@ -28,6 +28,7 @@ const adaptableOptions: AdaptableOptions = {
   licenseKey,
   userName: 'support user',
   adaptableId: 'AdapTable Vanilla Support Template',
+
   // Typically you will store State remotely; here we simply leverage local storage for convenience
   stateOptions: {
     persistState: (state, adaptableStateFunctionConfig) => {
@@ -59,7 +60,8 @@ const adaptableOptions: AdaptableOptions = {
       ],
     },
     Layout: {
-      CurrentLayout: 'Basic',
+      Revision: Date.now(),
+      CurrentLayout: 'Pivot',
       Layouts: [
         {
           Name: 'Basic',
@@ -79,6 +81,29 @@ const adaptableOptions: AdaptableOptions = {
             'closed_issues_count',
             'open_pr_count',
             'closed_pr_count',
+          ],
+        },
+        {
+          Name: 'Pivot',
+          PivotColumns: ['language'],
+          PivotGroupedColumns: ['license', 'has_wiki'],
+          PivotAggregationColumns: [
+            {
+              ColumnId: 'github_stars',
+              AggFunc: 'sum',
+            },
+            {
+              ColumnId: 'open_issues_count',
+              AggFunc: 'sum',
+            },
+            {
+              ColumnId: 'open_pr_count',
+              AggFunc: 'sum',
+            },
+            {
+              ColumnId: 'closed_pr_count',
+              AggFunc: 'sum',
+            },
           ],
         },
       ],
