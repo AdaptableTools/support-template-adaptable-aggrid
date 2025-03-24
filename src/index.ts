@@ -20,9 +20,8 @@ import { agGridModules } from './agGridModules';
 const licenseKey = process.env.ADAPTABLE_LICENSE_KEY;
 
 // Build the AdaptableOptions object and set primaryKey and adaptableId
-// In this example we are NOT creating any predefined config, other than Layout, nor providing any Adaptable Options classes (e.g. filters, entitlements)
+// In this example we are NOT creating any Initial State, other than Layout, nor providing any Adaptable Options classes (e.g. filters, entitlements)
 // However in the real world you will set up AdapTable Options to fit your requirements and configure your permissions and remote State
-// You will also provide Predefined Config so that AdapTable ships for first time use with your required objects
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
   licenseKey,
@@ -50,7 +49,7 @@ const adaptableOptions: AdaptableOptions = {
       });
     },
   },
-  predefinedConfig: {
+  initialState: {
     Dashboard: {
       Tabs: [
         {
@@ -61,7 +60,7 @@ const adaptableOptions: AdaptableOptions = {
     },
     Layout: {
       Revision: Date.now(),
-      CurrentLayout: 'Pivot',
+      CurrentLayout: 'Basic',
       Layouts: [
         {
           Name: 'Basic',
