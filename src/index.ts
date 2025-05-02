@@ -4,10 +4,8 @@ import {
   AgGridConfig,
 } from '@adaptabletools/adaptable/types';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
-import { GridOptions } from 'ag-grid-enterprise';
+import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 
-import 'ag-grid-enterprise/styles/ag-grid.css';
-import 'ag-grid-enterprise/styles/ag-theme-alpine.css';
 import '@adaptabletools/adaptable/base.css';
 import '@adaptabletools/adaptable/themes/light.css';
 import '@adaptabletools/adaptable/themes/dark.css';
@@ -115,7 +113,7 @@ const gridOptions: GridOptions = {
   defaultColDef,
   columnDefs,
   rowData,
-  theme: 'legacy',
+  theme: themeQuartz,
 };
 
 // Create an AG Grid Config object which contains AG Grid Grid Options and Modules
