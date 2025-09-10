@@ -11,7 +11,7 @@
   "dependencies": {
     "@adaptabletools/adaptable": "21.0.0",
     "ag-grid-enterprise": "34.0.2",
-    "parcel": "2.12.0"
+    "parcel": "2.15.4"
   },
   "keywords": [],
   "author": "JonnyAdaptableTools",
