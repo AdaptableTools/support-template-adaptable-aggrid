@@ -6,8 +6,7 @@ import {
 import Adaptable from '@adaptabletools/adaptable/agGrid';
 import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 
-import '@adaptabletools/adaptable/base.css';
-import '@adaptabletools/adaptable/themes/light.css';
+import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
 
 import { columnDefs, defaultColDef } from './columnDefs';
