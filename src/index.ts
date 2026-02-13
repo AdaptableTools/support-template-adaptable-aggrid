@@ -1,9 +1,10 @@
 import {
+  Adaptable,
   AdaptableOptions,
   AdaptableStateFunctionConfig,
   AgGridConfig,
-} from '@adaptabletools/adaptable/types';
-import Adaptable from '@adaptabletools/adaptable/agGrid';
+} from '@adaptabletools/adaptable';
+
 import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 
 import '@adaptabletools/adaptable/index.css';
