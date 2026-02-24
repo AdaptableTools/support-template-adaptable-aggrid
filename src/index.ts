@@ -1,9 +1,4 @@
-import {
-  Adaptable,
-  AdaptableOptions,
-  AdaptableStateFunctionConfig,
-  AgGridConfig,
-} from '@adaptabletools/adaptable';
+import { Adaptable, AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable';
 
 import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 
@@ -25,28 +20,6 @@ const adaptableOptions: AdaptableOptions = {
   licenseKey,
   userName: 'support user',
   adaptableId: 'AdapTable Vanilla Support Template',
-
-  // Typically you will store State remotely; here we simply leverage local storage for convenience
-  stateOptions: {
-    persistState: (state, adaptableStateFunctionConfig) => {
-      console.log('state key', adaptableStateFunctionConfig.adaptableStateKey);
-      localStorage.setItem(adaptableStateFunctionConfig.adaptableStateKey, JSON.stringify(state));
-      return Promise.resolve(true);
-    },
-    loadState: (config: AdaptableStateFunctionConfig) => {
-      return new Promise((resolve) => {
-        let state = {};
-        try {
-          console.log('load state from key', config.adaptableStateKey);
-          state = JSON.parse(localStorage.getItem(config.adaptableStateKey) as string) || {};
-          console.log('state', state);
-        } catch (err) {
-          console.log('Error loading state', err);
-        }
-        resolve(state);
-      });
-    },
-  },
   initialState: {
     Dashboard: {
       Tabs: [
