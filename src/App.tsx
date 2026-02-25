@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
 import {
   Adaptable,
   AdaptableOptions,
   AdaptableStateFunctionConfig,
   AgGridConfig,
 } from '@adaptabletools/adaptable';
-
 import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 
 import '@adaptabletools/adaptable/index.css';
@@ -14,23 +14,21 @@ import { columnDefs, defaultColDef } from './columnDefs';
 import { rowData } from './rowData';
 import { agGridModules } from './agGridModules';
 
-//@ts-ignore
-const licenseKey = process.env.ADAPTABLE_LICENSE_KEY;
+const licenseKey = process.env.REACT_APP_ADAPTABLE_LICENSE_KEY;
 
-// Build the AdaptableOptions object and set primaryKey and adaptableId
-// In this example we are NOT creating any Initial State, other than Layout, nor providing any Adaptable Options classes (e.g. filters, entitlements)
-// However in the real world you will set up AdapTable Options to fit your requirements and configure your permissions and remote State
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
   licenseKey,
   userName: 'support user',
   adaptableId: 'AdapTable Vanilla Support Template',
 
-  // Typically you will store State remotely; here we simply leverage local storage for convenience
   stateOptions: {
     persistState: (state, adaptableStateFunctionConfig) => {
       console.log('state key', adaptableStateFunctionConfig.adaptableStateKey);
-      localStorage.setItem(adaptableStateFunctionConfig.adaptableStateKey, JSON.stringify(state));
+      localStorage.setItem(
+        adaptableStateFunctionConfig.adaptableStateKey,
+        JSON.stringify(state)
+      );
       return Promise.resolve(true);
     },
     loadState: (config: AdaptableStateFunctionConfig) => {
@@ -38,7 +36,10 @@ const adaptableOptions: AdaptableOptions = {
         let state = {};
         try {
           console.log('load state from key', config.adaptableStateKey);
-          state = JSON.parse(localStorage.getItem(config.adaptableStateKey) as string) || {};
+          state =
+            JSON.parse(
+              localStorage.getItem(config.adaptableStateKey) as string
+            ) || {};
           console.log('state', state);
         } catch (err) {
           console.log('Error loading state', err);
@@ -108,7 +109,6 @@ const adaptableOptions: AdaptableOptions = {
   },
 };
 
-// Create an AG Grid GridOptions object with the Column Definitions and Row Data created above
 const gridOptions: GridOptions = {
   defaultColDef,
   columnDefs,
@@ -116,13 +116,24 @@ const gridOptions: GridOptions = {
   theme: themeQuartz,
 };
 
-// Create an AG Grid Config object which contains AG Grid Grid Options and Modules
 const agGridConfig: AgGridConfig = {
   modules: agGridModules,
   gridOptions: gridOptions,
 };
 
-// Asynchronously instantiate AdapTable with Adaptable Options and AG Grid Config
-Adaptable.init(adaptableOptions, agGridConfig).then((api) => {
-  console.log('AdapTable ready!');
-});
+function App() {
+  useEffect(() => {
+    Adaptable.init(adaptableOptions, agGridConfig).then((api) => {
+      console.log('AdapTable ready!');
+    });
+  }, []);
+
+  return (
+    <div className="content">
+      <div id="adaptable"></div>
+      <div id="grid"></div>
+    </div>
+  );
+}
+
+export default App;
