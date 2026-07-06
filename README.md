@@ -14,8 +14,8 @@ For full information on how to use AdapTable see the [AdapTable Documentation](h
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com) version 22.x
-- [AG Grid](https://www.ag-grid.com) version 35.x
+- [AdapTable](https://www.adaptabletools.com) version 23.x
+- [AG Grid](https://www.ag-grid.com) version 35.3
 
 ## Contents
 
@@ -23,8 +23,8 @@ This template contains just the bare bones required to set up an AdapTable insta
 
 A "real world" example would likely include:
 
-- Design-time - providing [Adaptable Options](https://www.adaptabletools.com/docs/reference-options-overview) and [Initial Adaptable State](https://www.adaptabletools.com/docs/reference-initial-state) to configure the application
-- Run-time - using the [Adaptable API](https://www.adaptabletools.com/docs/reference-api-overview) and listening to [Adaptable Events](https://www.adaptabletools.com/docs/reference-event-overview)
+- Design-time - providing [Adaptable Options](https://www.adaptabletools.com/docs/technical-reference-adaptable-options) and [Initial Adaptable State](https://www.adaptabletools.com/docs/technical-reference-initial-state) to configure the application
+- Run-time - using the [Adaptable API](https://www.adaptabletools.com/docs/technical-reference-adaptable-api) and listening to [Adaptable Events](https://www.adaptabletools.com/docs/technical-reference-adaptable-events)
 
 ## Installation
 

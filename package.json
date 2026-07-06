@@ -1,7 +1,7 @@
 {
   "name": "support-template-adaptable-aggrid",
   "version": "1.0.0",
-  "description": "AdapTable Support Template",
+  "description": "AdapTable Vanilla Support Template",
   "source": "index.html",
   "scripts": {
     "dev": "parcel index.html --no-cache",
@@ -9,14 +9,13 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json,html}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable": "~22.0.0",
-    "ag-grid-enterprise": "35.0.1",
+    "@adaptabletools/adaptable": "23.0.8",
+    "ag-grid-enterprise": "35.3.0",
     "parcel": "2.15.4"
   },
   "keywords": [],
   "author": "JonnyAdaptableTools",
   "license": "MIT",
-  "homepage": "https://github.com/AdaptableTools/support-template-adaptable-react-aggrid#readme",
   "devDependencies": {
     "prettier": "^2.7.1",
     "process": "^0.11.10",
