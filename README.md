@@ -14,7 +14,7 @@ For full information on how to use AdapTable see the [AdapTable Documentation](h
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com) version 23.1
+- [AdapTable](https://www.adaptabletools.com) version 24.x
 - [AG Grid](https://www.ag-grid.com) version 36.2
 
 ## Contents
@@ -29,6 +29,12 @@ A "real world" example would likely include:
 ## Installation
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
+
+## Bundler configuration (AdapTable 24+)
+
+`package.json` enables `"@parcel/resolver-default": { "packageExports": true }`. AdapTable depends on `cn`, whose `cn/config` entry point only exists in its `exports` map, and Parcel ignores `exports` unless this is enabled.
+
+If you open this template in CodeSandbox, its in-browser bundler also needs an `alias` for Base UI's `#prehydration/*` imports; see the [AdapTable 24 release note](https://www.adaptabletools.com/support/version-240-release-note).
 
 ## Running in Development Mode
 
